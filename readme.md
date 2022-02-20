@@ -539,14 +539,10 @@ WORKDIR /home/node/src
 
 COPY --chown=node:node . .
 
-RUN yarn install --immutable --immutable-cache --check-cache
+RUN yarn
 
 CMD ["node", "index.js"]
 ```
-
-Basically the command
-`yarn install --immutable --immutable-cache --check-cache` is equivalent to
-`npm ci` which will install the modules from `yarn.lock` file.
 
 Why we need `RUN mkdir /home/node/src`? Because by default, it will create a
 directory as `root` instead of `node` user. When using `RUN`, we run the
@@ -560,7 +556,7 @@ change something inside of `index.js` then we'll run these command again
 ```sh
 COPY --chown=node:node . .
 
-RUN yarn install --immutable --immutable-cache --check-cache
+RUN yarn
 
 CMD ["node", "index.js"]
 ```
@@ -579,9 +575,9 @@ RUN mkdir /home/node/src
 
 WORKDIR /home/node/src
 
-COPY --chown=node:node yarn.lock package.json
+COPY --chown=node:node package.json package.json
 
-RUN yarn install --immutable --immutable-cache --check-cache
+RUN yarn
 
 COPY --chown=node:node . .
 
@@ -590,7 +586,7 @@ CMD ["node", "index.js"]
 
 The downside of this approach is that, we won't be able to get the patch
 of our dependencies because wee only run `yarn install` if there's any change
-to `yarn.lock` file. That can be a good thing or a bad thing depending on our
+to `package.json` file. That can be a good thing or a bad thing depending on our
 circumstances.
 
 ## Docker Ignore
@@ -614,8 +610,8 @@ USER node
 RUN mkdir /home/node/src
 WORKDIR /home/node/src
 
-COPY --chown=node:node yarn.lock package.json
-RUN yarn install --immutable --immutable-cache --check-cache
+COPY --chown=node:node package.json package.json
+RUN yarn
 
 COPY --chown=node:node . .
 
@@ -636,8 +632,8 @@ Here's an example of multi-stage builds:
 # build stage
 FROM node:12-stretch AS build
 WORKDIR /build
-COPY yarn.lock package.json
-RUN yarn install --immutable --immutable-cache --check-cache
+COPY package.json package.json
+RUN yarn
 COPY . .
 
 # runtime stage
