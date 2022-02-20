@@ -277,12 +277,12 @@ docker inspect archlinux
 Freeze all of its process tress and its just stop in its tracks. The command
 is something like this:
 ```sh
-docker pause archlinux
+docker pause archlinux-host
 ```
 
 To unpause, we can use this command:
 ```sh
-docker unpause archlinux
+docker unpause archlinux-host
 ```
 
 **We can't execute a command using `docker exec` if the container is paused**.
@@ -291,7 +291,7 @@ docker unpause archlinux
 
 Kill the running docker container. The command is something like this:
 ```sh
-docker kill archlinux
+docker kill archlinux-host
 ```
 
 A simple trick to kill all the running container:
