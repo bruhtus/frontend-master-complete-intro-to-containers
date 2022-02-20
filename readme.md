@@ -650,6 +650,8 @@ RUN mkdir /home/node/src
 WORKDIR /home/node/src
 
 COPY --from=build --chown=node:node /build .
+
+CMD ["node", "index.js"]
 ```
 
 ## Features in Docker
