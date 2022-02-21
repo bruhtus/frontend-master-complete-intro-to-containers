@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  web:
+    build: .
+    ports:
+      - '3000:3000'
+    volumes:
+      - node-app:/home/node/src
+
+volumes:
+  node-app:
+    name: my-node-app
