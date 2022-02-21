@@ -1,4 +1,4 @@
-# Instruction
+# Instructions
 
 Use this command to build the docker image from Dockerfile:
 ```sh
