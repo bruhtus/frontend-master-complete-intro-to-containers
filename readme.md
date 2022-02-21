@@ -847,3 +847,4 @@ notes, you should check out the course website instead):
 - [Docker hub container registry](https://hub.docker.com/search?q=&type=image).
 - [Equivalent of npm ci](https://stackoverflow.com/a/69944063).
 - [Kompose website](https://kompose.io/).
+- [Create named volume with docker compose](https://stackoverflow.com/a/55878950).
