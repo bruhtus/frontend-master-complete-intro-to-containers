@@ -86,7 +86,7 @@ cp --parent -v /bin/bash /usr/lib/libreadline.so.8 /usr/lib/libdl.so.2 /usr/lib/
 
 After that, we can change root using this command:
 ```sh
-# use sudo if you're non run this as root.
+# use sudo if you're not run this as root.
 chroot my-new-root /bin/bash
 ```
 
