@@ -553,7 +553,7 @@ command as the current user. With that, hopefully we avoid permission error.
 If there's no change, then docker won't run it again. For example, if we
 change something inside of `index.js` then we'll run these command again
 (from previous example):
-```sh
+```dockerfile
 COPY --chown=node:node . .
 
 RUN yarn
@@ -585,7 +585,7 @@ CMD ["node", "index.js"]
 ```
 
 The downside of this approach is that, we won't be able to get the patch
-of our dependencies because wee only run `yarn install` if there's any change
+of our dependencies because we're only run `yarn install` if there's any change
 to `package.json` file. That can be a good thing or a bad thing depending on our
 circumstances.
 
