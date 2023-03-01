@@ -145,7 +145,7 @@ the course website section [here](https://btholt.github.io/complete-intro-to-con
 
 We can run the docker image with this command:
 ```sh
-# in this example, we use alphine docker image version 3.10
+# in this example, we use alpine docker image version 3.10
 docker run --interactive --tty archlinux:latest
 
 # or the shorter version, like this
